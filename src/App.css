@@ -1,14 +1,11 @@
-
-
-
-
-
-
-
-
-
-
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  /*font-family: "Itim", cursive;*/
+  font-family: "Roboto Mono", monospace;
+}
 
 /*.App {
   text-align: center;
