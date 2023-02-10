@@ -3,16 +3,67 @@
   margin: 0;
 }
 body {
-  /*font-family: "Itim", cursive;*/
   font-family: "Roboto Mono", monospace;
   text-align: center;
+  font-weight: 400;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/*.App {
-  text-align: center;
+.App {
+  max-width: 100%;
+  position: relative;
+  border: 1px solid black;
+  margin: 20px auto;
+  padding: 30px 10px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px rgb(0 20 0 / 50%);
+  width: 600px;
+  z-index: 2;
 }
 
-.App-logo {
+.quote {
+  background-color: yellow;
+  position: relative;
+  padding: 40px 50px;
+}
+.text {
+  font-size: 1.75em;
+  font-weight: 500;
+  clear: both;
+  opacity: 1;
+}
+.author {
+  clear: both;
+  opacity: 1;
+  font-size: 1em;
+  text-align: right;
+  padding-top: 20px;
+}
+
+.buttons {
+  background-color: rgb(98, 171, 98);
+  display: block;
+  margin: auto;
+}
+.button {
+  height: 38px;
+  border: 1px solid black;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+footer {
+  font-size: 0.8em;
+  border: 1px solid black;
+}
+footer a {
+  text-decoration: none;
+  color: black;
+}
+
+/*.App-logo {
   height: 40vmin;
   pointer-events: none;
 }

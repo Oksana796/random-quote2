@@ -31,7 +31,12 @@ function App() {
       <div className="App">
         <div className="quote">
           <div className="text">
-            <FaQuoteLeft />
+            <FaQuoteLeft style={{
+              display: "inline-block",
+              verticalAlign: "top",
+              fontSize: "1em",
+              marginRight: "0.4em",
+            }}/>
             <span className="cit">{quote}</span>
           </div>
           <div className="author">- {author}</div>
@@ -45,18 +50,31 @@ function App() {
             href="https://twitter.com/intent/tweet?text=Hello%20world&hashtags=proudOf via @me"
             title="Tweet this quote!"
           >
-            <FaTwitter />
+            <FaTwitter style={{
+              float: "left",
+              width:"40px",
+              height: "38px",
+              backgroundColor:"black",
+              color: "white",
+              padding: "6px 0",
+              borderRadius:"3px",
+              
+            }}/>
           </a>
 
-          <button className="button" onClick={() => getQuote()}>
+          <button className="button"
+          style={{
+            float: "right",
+          }}
+           onClick={() => getQuote()}>
             New Quote
           </button>
         </div>
       </div>
       <footer>
-        by
+        by 
         <a href="https://github.com/Oksana796" target="_blank" rel="noreferrer">
-          Oksana
+           Oksana
         </a>
       </footer>
     </>
