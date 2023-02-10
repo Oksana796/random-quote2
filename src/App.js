@@ -6,7 +6,7 @@ import "./App.css";
 function App() {
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
-  const [color, setColor] = useState("darkGrey");
+  const [color, setColor] = useState("#8f8bab");
 
   let colors = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
 
@@ -64,43 +64,43 @@ function App() {
           <div className="author" style={{ color }}>
             - {author}
           </div>
-        </div>
 
-        <div className="buttons">
-          <a
-            className="button"
-            target="_blank"
-            rel="noreferrer"
-            href="https://twitter.com/intent/tweet?text=Hello%20world&hashtags=proudOf via @me"
-            title="Tweet this quote!"
-          >
-            <FaTwitter
+          <div className="buttons">
+            <a
+              className="button"
+              target="_blank"
+              rel="noreferrer"
+              href={`https://twitter.com/intent/tweet?text=${quote} @${author} &hashtags=proudOf`}
+              title="Do not tweet the quote!"
+            >
+              <FaTwitter
+                style={{
+                  float: "left",
+                  width: "40px",
+                  height: "38px",
+                  backgroundColor: color,
+                  color: "white",
+                  padding: "6px 0",
+                  borderRadius: "3px",
+                }}
+              />
+            </a>
+
+            <button
+              className="button"
               style={{
-                float: "left",
-                width: "40px",
-                height: "38px",
+                float: "right",
                 backgroundColor: color,
-                color: "white",
-                padding: "6px 0",
-                borderRadius: "3px",
               }}
-            />
-          </a>
-
-          <button
-            className="button"
-            style={{
-              float: "right",
-              backgroundColor: color,
-            }}
-            onClick={(e) => {
-              e.stopPropagation();
-              getQuote();
-              getColor();
-            }}
-          >
-            New Quote
-          </button>
+              onClick={(e) => {
+                e.stopPropagation();
+                getQuote();
+                getColor();
+              }}
+            >
+              New Quote
+            </button>
+          </div>
         </div>
       </div>
       <footer>
