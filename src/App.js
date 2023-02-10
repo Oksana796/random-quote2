@@ -70,7 +70,7 @@ function App() {
               className="button"
               target="_blank"
               rel="noreferrer"
-              href={`https://twitter.com/intent/tweet?text=${quote} @${author} &hashtags=proudOf`}
+              href={`https://twitter.com/intent/tweet?text=${quote} @${author} &hashtags=proudOfMe`}
               title="Do not tweet the quote!"
             >
               <FaTwitter
