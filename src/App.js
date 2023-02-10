@@ -6,7 +6,9 @@ import "./App.css";
 function App() {
   const [quote, setQuote] = useState("");
   const [author, setAuthor] = useState("");
-  const [color, setColor] = useState("grey");
+  const [color, setColor] = useState("darkGrey");
+
+  let colors = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
 
   const getQuote = () => {
     fetch(
@@ -26,20 +28,42 @@ function App() {
       .catch((err) => console.error("Sorry"));
   };
 
+  const getColor = () => {
+    let hexColor = "#";
+
+    for (let i = 0; i < 6; i++) {
+      let random = Math.floor(Math.random() * colors.length);
+      hexColor = hexColor + colors[random];
+    }
+    console.log("hexColor");
+    setColor(hexColor);
+  };
+
+  useEffect(() => {
+    document.body.style.background = color;
+  }, [color]);
+
   return (
     <>
       <div className="App">
         <div className="quote">
           <div className="text">
-            <FaQuoteLeft style={{
-              display: "inline-block",
-              verticalAlign: "top",
-              fontSize: "1em",
-              marginRight: "0.4em",
-            }}/>
-            <span className="cit">{quote}</span>
+            <FaQuoteLeft
+              style={{
+                display: "inline-block",
+                verticalAlign: "top",
+                fontSize: "1em",
+                marginRight: "0.4em",
+                color: color,
+              }}
+            />
+            <span className="cit" style={{ color }}>
+              {quote}
+            </span>
           </div>
-          <div className="author">- {author}</div>
+          <div className="author" style={{ color }}>
+            - {author}
+          </div>
         </div>
 
         <div className="buttons">
@@ -50,31 +74,39 @@ function App() {
             href="https://twitter.com/intent/tweet?text=Hello%20world&hashtags=proudOf via @me"
             title="Tweet this quote!"
           >
-            <FaTwitter style={{
-              float: "left",
-              width:"40px",
-              height: "38px",
-              backgroundColor:"black",
-              color: "white",
-              padding: "6px 0",
-              borderRadius:"3px",
-              
-            }}/>
+            <FaTwitter
+              style={{
+                float: "left",
+                width: "40px",
+                height: "38px",
+                backgroundColor: color,
+                color: "white",
+                padding: "6px 0",
+                borderRadius: "3px",
+              }}
+            />
           </a>
 
-          <button className="button"
-          style={{
-            float: "right",
-          }}
-           onClick={() => getQuote()}>
+          <button
+            className="button"
+            style={{
+              float: "right",
+              backgroundColor: color,
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              getQuote();
+              getColor();
+            }}
+          >
             New Quote
           </button>
         </div>
       </div>
       <footer>
-        by 
+        by
         <a href="https://github.com/Oksana796" target="_blank" rel="noreferrer">
-           Oksana
+          Oksana
         </a>
       </footer>
     </>
